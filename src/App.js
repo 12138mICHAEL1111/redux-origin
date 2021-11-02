@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import {Provider} from "./redux/redux";
+import { store } from "./store/store";
+import User from './components/user'
+import ModifyUser from './components/modifyUser'
+import Group from './components/group'
+
+
+const Child = ()=> <div>这是第一个child<User/></div>
+
+const GrandChild =()=> (<div>这是一个grandchild<ModifyUser x={'hello'}/></div>)
+
+const GrandGrandChild =()=>(<div>这是grandgrandchild<Group/></div>)
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Provider store={store}>
+      <Child/>
+      <hr></hr>
+      <GrandChild></GrandChild>
+      <hr></hr>
+      <GrandGrandChild></GrandGrandChild>
+      </Provider>
     </div>
   );
 }
