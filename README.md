@@ -1,3 +1,5 @@
+## a self-developed redux model
+
 The page is divided into 3 components,
 First component is called user to display the state of user.
 Second component is called modifyUser to change the state of user.
